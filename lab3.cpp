@@ -9,25 +9,26 @@ int main()
 	double B; // проміжний результат - функціонально змінна частина виразу
 	cout << "x = "; cin >> x;
 
-	A = x * x;
+	A = 1+9*x;
 	// спосіб 1: розгалуження в скороченій формі
-	if (x < 0)
-		B = sin(x);
-	if (0 <= x && x <= 1)
-		B = exp(x);
-	if (x > 1)
-		B = cos(x);
+	if (x<=0)
+		B = log(abs(sin(x))) + pow(x,7);
+	if (0 < x && x <= 3)
+		B = 1/tan(abs(x+1)/2);
+	if (x>3)
+		B = 3*x-pow(x,5);
 	y = A + B;
 	cout << endl;
 	cout << "1) y = " << y << endl;
 	// спосіб 2: розгалуження в повній формі
-	if (x < 0)
-		B = sin(x);
+	if (x <= 0)
+		B = log(abs(sin(x))) + pow(x, 7);
 	else
-		if (x > 1)
-			B = cos(x);
+		if (x > 3)
+			B = 3 * x - pow(x, 5);
 		else
-			B = exp(x);
+			B = 1 / tan(abs(x + 1) / 2);
+
 	y = A + B;
 	cout << "2) y = " << y << endl;
 	cin.get();
